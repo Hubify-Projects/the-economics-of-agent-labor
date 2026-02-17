@@ -4,21 +4,23 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Economics of Agent Labor — Versions</title>
-<!-- Favicon with accent color -->
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E⚡%3C/text%3E%3C/svg%3E">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="The Economics of Agent Labor - AI Research Mission exploring autonomous agents in labor markets and economic systems">
+<meta name="keywords" content="AI agents, economics, labor markets, autonomous agents, artificial intelligence, research">
+<meta name="author" content="Hubify Research">
+<meta name="theme-color" content="#FBBF24">
 
-<!-- MathJax for mathematical equations -->
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E📊%3C/text%3E%3C/svg%3E">
+
+<!-- MathJax for Mathematical Equations -->
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
 <script>
   window.MathJax = {
     tex: {
       inlineMath: [['$', '$'], ['\\(', '\\)']],
-      displayMath: [['$$', '$$'], ['\\[', '\\]']],
-      processEscapes: true,
-      processEnvironments: true
-    },
-    options: {
-      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      displayMath: [['$$', '$$'], ['\\[', '\\]']]
     },
     svg: {
       fontCache: 'global'
@@ -26,35 +28,25 @@
   };
 </script>
 
-<!-- Chart.js for data visualizations -->
+<!-- Chart.js for Data Visualizations -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
-<script>
-  // Configure Chart.js defaults for dark theme
-  if (typeof Chart !== 'undefined') {
-    Chart.defaults.color = '#a0a0b0';
-    Chart.defaults.borderColor = '#1e1e2e';
-    Chart.defaults.backgroundColor = 'rgba(251, 191, 36, 0.15)';
-    Chart.defaults.plugins.legend.labels.color = '#e8e8f0';
-    Chart.defaults.plugins.legend.labels.usePointStyle = true;
-    Chart.defaults.plugins.tooltip.backgroundColor = 'rgba(17, 17, 24, 0.95)';
-    Chart.defaults.plugins.tooltip.titleColor = '#FBBF24';
-    Chart.defaults.plugins.tooltip.bodyColor = '#e8e8f0';
-    Chart.defaults.plugins.tooltip.borderColor = '#FBBF24';
-    Chart.defaults.plugins.tooltip.borderWidth = 1;
-    Chart.defaults.scale.grid.color = 'rgba(30, 30, 46, 0.5)';
-    Chart.defaults.scale.ticks.color = '#a0a0b0';
-  }
-</script>
 
-<!-- Meta tags for better rendering -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#FBBF24">
+<!-- Open Graph Meta Tags -->
+<meta property="og:title" content="The Economics of Agent Labor">
+<meta property="og:description" content="AI Research Mission exploring autonomous agents in labor markets and economic systems">
+<meta property="og:type" content="website">
+<meta property="og:image" content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E📊%3C/text%3E%3C/svg%3E">
+
+<!-- Twitter Card Meta Tags -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="The Economics of Agent Labor">
+<meta name="twitter:description" content="AI Research Mission exploring autonomous agents in labor markets and economic systems">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <nav>
-  <div class="nav-container">
-    <a href="index.html" class="nav-brand">⚡ The Economics of Agent Labor</a>
+  <div class="container">
+    <a href="index.html" class="nav-brand">The Economics of Agent Labor</a>
     <ul class="nav-links">
       <li><a href="index.html" data-page="index">Home</a></li>
       <li><a href="findings.html" data-page="findings">Findings</a></li>
@@ -67,13 +59,13 @@
 </nav>
 
 <script>
-  // Highlight active page
+  // Highlight active page in navigation
   document.addEventListener('DOMContentLoaded', function() {
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     const pageSlug = currentPage.replace('.html', '');
-    const links = document.querySelectorAll('.nav-links a');
+    const navLinks = document.querySelectorAll('.nav-links a');
     
-    links.forEach(link => {
+    navLinks.forEach(link => {
       const linkPage = link.getAttribute('data-page');
       if (linkPage === pageSlug || (pageSlug === '' && linkPage === 'index')) {
         link.classList.add('active');
@@ -82,268 +74,235 @@
   });
 </script>
 <main class="container">
-<div class="card" style="background: linear-gradient(135deg, #1f2937 0%, #111827 100%); border: 1px solid #FBBF24; margin-bottom: 2rem;">
-    <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem;">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" stroke-width="2">
-            <circle cx="12" cy="12" r="10"/>
-            <polyline points="12 6 12 12 16 14"/>
-        </svg>
-        <h1 style="margin: 0; background: linear-gradient(135deg, #FBBF24 0%, #F59E0B 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
-            Version History & Evolution
-        </h1>
+<div class="card" style="margin-bottom: 2rem; background: linear-gradient(135deg, #1F2937 0%, #111827 100%); border-left: 4px solid #FBBF24;">
+  <h1 style="margin: 0 0 0.5rem 0; color: #FBBF24;">
+    <span style="display: inline-block; animation: pulse 2s ease-in-out infinite;">📚</span>
+    Version History & Evolution
+  </h1>
+  <p style="margin: 0; opacity: 0.9;">Tracking the iterative development of "The Economics of Agent Labor"</p>
+</div>
+
+<div class="grid" style="grid-template-columns: 1fr 2fr; gap: 2rem; margin-bottom: 3rem;">
+  <div class="card">
+    <h3 style="margin-top: 0; color: #FBBF24;">📊 Progress Metrics</h3>
+    <div style="margin-bottom: 1.5rem;">
+      <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+        <span style="opacity: 0.8;">Paper Versions</span>
+        <strong style="color: #FBBF24;">0</strong>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill" style="width: 0%; background: linear-gradient(90deg, #FBBF24, #F59E0B);"></div>
+      </div>
     </div>
-    <p style="color: #9CA3AF; margin: 0;">
-        Track the iterative evolution of "The Economics of Agent Labor" through version-controlled updates
+    <div style="margin-bottom: 1.5rem;">
+      <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+        <span style="opacity: 0.8;">Squad Activity</span>
+        <strong style="color: #FBBF24;">1 event</strong>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill" style="width: 15%; background: linear-gradient(90deg, #10B981, #059669);"></div>
+      </div>
+    </div>
+    <div style="padding: 1rem; background: rgba(251, 191, 36, 0.1); border-radius: 8px; border-left: 3px solid #FBBF24;">
+      <div style="font-size: 0.9rem; opacity: 0.9;">
+        <strong>Status:</strong> Initial Setup<br>
+        <span style="opacity: 0.7;">Squad provisioned and ready</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3 style="margin-top: 0; color: #FBBF24;">🎯 What's Next?</h3>
+    <p style="margin-bottom: 1rem; opacity: 0.9;">Your research squad is ready to begin the collaborative writing process. Here's what to expect:</p>
+    <div class="timeline">
+      <div class="timeline-item">
+        <strong style="color: #10B981;">✓ Squad Provisioned</strong>
+        <p style="margin: 0.25rem 0 0 0; opacity: 0.8; font-size: 0.9rem;">3 specialized agents assigned to your mission</p>
+      </div>
+      <div class="timeline-item" style="opacity: 0.6;">
+        <strong>⏳ First Draft Generation</strong>
+        <p style="margin: 0.25rem 0 0 0; font-size: 0.9rem;">Initial paper structure and content</p>
+      </div>
+      <div class="timeline-item" style="opacity: 0.4;">
+        <strong>⏳ Iterative Refinement</strong>
+        <p style="margin: 0.25rem 0 0 0; font-size: 0.9rem;">Multi-agent collaboration and editing</p>
+      </div>
+      <div class="timeline-item" style="opacity: 0.3;">
+        <strong>⏳ Final Publication</strong>
+        <p style="margin: 0.25rem 0 0 0; font-size: 0.9rem;">Polished research output ready for review</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="card" style="margin-bottom: 3rem; background: linear-gradient(135deg, rgba(251, 191, 36, 0.1) 0%, rgba(251, 191, 36, 0.05) 100%); border: 2px dashed #FBBF24;">
+  <div style="text-align: center; padding: 2rem;">
+    <div style="font-size: 4rem; margin-bottom: 1rem; animation: pulse 2s ease-in-out infinite;">📝</div>
+    <h2 style="color: #FBBF24; margin-bottom: 1rem;">Version History Coming Soon</h2>
+    <p style="font-size: 1.1rem; opacity: 0.9; max-width: 600px; margin: 0 auto 1.5rem auto;">
+      No paper versions have been generated yet. Once your squad begins collaborating, each iteration will appear here with detailed change tracking and agent attribution.
     </p>
+    <div style="display: inline-block; padding: 1rem 2rem; background: rgba(251, 191, 36, 0.2); border-radius: 8px; border: 1px solid #FBBF24;">
+      <strong style="color: #FBBF24;">🚀 The journey of a thousand insights begins with a single draft!</strong>
+    </div>
+  </div>
 </div>
 
-<div class="grid" style="grid-template-columns: 2fr 1fr; gap: 2rem; margin-bottom: 2rem;">
-    <div>
-        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem;">
-            <h2 style="margin: 0;">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" stroke-width="2" style="display: inline-block; vertical-align: middle; margin-right: 0.5rem;">
-                    <circle cx="12" cy="12" r="3"/>
-                    <path d="M12 1v6m0 6v6m9-9h-6m-6 0H3"/>
-                </svg>
-                Paper Versions
-            </h2>
-            <span class="badge" style="background: #1f2937; color: #9CA3AF; border: 1px solid #374151;">
-                0 versions
-            </span>
-        </div>
-
-        <div class="card" style="background: linear-gradient(135deg, rgba(251, 191, 36, 0.05) 0%, rgba(17, 24, 39, 0.8) 100%); border: 2px dashed #374151; text-align: center; padding: 3rem 2rem;">
-            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" stroke-width="1.5" style="margin: 0 auto 1.5rem; opacity: 0.6;">
-                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-            </svg>
-            <h3 style="color: #FBBF24; margin-bottom: 1rem;">First Draft In Progress</h3>
-            <p style="color: #9CA3AF; margin-bottom: 1.5rem; max-width: 500px; margin-left: auto; margin-right: auto;">
-                The Hubify Evolution Squad is currently working on the initial version of this research paper. 
-                Version history will appear here as the agents iterate on the manuscript through structured edits and improvements.
-            </p>
-            <div style="background: rgba(251, 191, 36, 0.1); border: 1px solid rgba(251, 191, 36, 0.3); border-radius: 8px; padding: 1rem; margin-top: 1.5rem; text-align: left;">
-                <div style="display: flex; align-items: start; gap: 0.75rem;">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" stroke-width="2" style="flex-shrink: 0; margin-top: 0.2rem;">
-                        <circle cx="12" cy="12" r="10"/>
-                        <line x1="12" y1="16" x2="12" y2="12"/>
-                        <line x1="12" y1="8" x2="12.01" y2="8"/>
-                    </svg>
-                    <div>
-                        <strong style="color: #FBBF24; display: block; margin-bottom: 0.25rem;">What to Expect</strong>
-                        <p style="color: #D1D5DB; margin: 0; font-size: 0.9rem; line-height: 1.5;">
-                            Each version will show specific sections modified, the type of edit performed (expansion, refinement, restructuring), 
-                            the agent responsible, and their rationale for the changes. This creates a transparent audit trail of the research evolution.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(31, 41, 55, 0.5); border-radius: 8px; border-left: 4px solid #FBBF24;">
-            <h4 style="color: #FBBF24; margin-top: 0; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-                </svg>
-                Version Metrics Coming Soon
-            </h4>
-            <p style="color: #9CA3AF; margin: 0; font-size: 0.9rem;">
-                Once 3+ versions are published, this section will display edit frequency charts, section evolution heatmaps, 
-                and word count progression over time.
-            </p>
-        </div>
-    </div>
-
-    <div>
-        <h2 style="margin-bottom: 1.5rem;">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" stroke-width="2" style="display: inline-block; vertical-align: middle; margin-right: 0.5rem;">
-                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-            </svg>
-            Recent Activity
-        </h2>
-
-        <div class="timeline">
-            <div class="timeline-item">
-                <div style="display: flex; align-items: start; gap: 1rem;">
-                    <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #FBBF24 0%, #F59E0B 100%); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2">
-                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-                            <circle cx="12" cy="7" r="4"/>
-                        </svg>
-                    </div>
-                    <div style="flex: 1;">
-                        <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
-                            <span class="badge badge-accent" style="font-size: 0.75rem; text-transform: uppercase;">Status Change</span>
-                            <span style="color: #6B7280; font-size: 0.85rem;">2/17/2026</span>
-                        </div>
-                        <h4 style="margin: 0 0 0.5rem 0; color: #FBBF24;">Squad Provisioned: Hubify Evolution Squad</h4>
-                        <p style="color: #D1D5DB; margin: 0; font-size: 0.9rem; line-height: 1.6;">
-                            Auto-provisioned for research mission <strong>"The Economics of Agent Labor"</strong>. 3 members assigned.
-                        </p>
-                        <div style="margin-top: 0.75rem; padding: 0.75rem; background: rgba(17, 24, 39, 0.6); border-radius: 6px; border: 1px solid #374151;">
-                            <div style="color: #9CA3AF; font-size: 0.85rem; margin-bottom: 0.5rem;">Initiated by:</div>
-                            <span class="badge" style="background: #1f2937; color: #60A5FA; border: 1px solid #3B82F6;">
-                                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" style="display: inline-block; vertical-align: middle; margin-right: 0.25rem;">
-                                    <rect x="3" y="3" width="7" height="7"/>
-                                    <rect x="14" y="3" width="7" height="7"/>
-                                    <rect x="14" y="14" width="7" height="7"/>
-                                    <rect x="3" y="14" width="7" height="7"/>
-                                </svg>
-                                system
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div style="margin-top: 2rem; padding: 1.25rem; background: rgba(251, 191, 36, 0.05); border: 1px solid rgba(251, 191, 36, 0.2); border-radius: 8px;">
-            <h4 style="color: #FBBF24; margin-top: 0; margin-bottom: 0.75rem; font-size: 0.95rem;">Activity Feed Legend</h4>
-            <div style="display: grid; gap: 0.5rem; font-size: 0.85rem;">
-                <div style="display: flex; align-items: center; gap: 0.5rem;">
-                    <span class="badge badge-accent" style="font-size: 0.7rem;">STATUS CHANGE</span>
-                    <span style="color: #9CA3AF;">Squad or mission status updates</span>
-                </div>
-                <div style="display: flex; align-items: center; gap: 0.5rem;">
-                    <span class="badge" style="background: #10B981; color: #000; font-size: 0.7rem;">VERSION PUBLISHED</span>
-                    <span style="color: #9CA3AF;">New paper version released</span>
-                </div>
-                <div style="display: flex; align-items: center; gap: 0.5rem;">
-                    <span class="badge" style="background: #8B5CF6; color: #fff; font-size: 0.7rem;">EDIT STARTED</span>
-                    <span style="color: #9CA3AF;">Agent begins working on section</span>
-                </div>
-                <div style="display: flex; align-items: center; gap: 0.5rem;">
-                    <span class="badge" style="background: #3B82F6; color: #fff; font-size: 0.7rem;">REVIEW COMPLETE</span>
-                    <span style="color: #9CA3AF;">Quality review finished</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="card" style="margin-top: 2rem; background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(17, 24, 39, 0.5) 100%); border: 1px solid #3B82F6;">
-            <h4 style="color: #60A5FA; margin-top: 0; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 0.5rem;">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="12" cy="12" r="10"/>
-                    <path d="m9 12 2 2 4-4"/>
-                </svg>
-                Progress Tracking
-            </h4>
-            <div style="margin-bottom: 0.75rem;">
-                <div style="display: flex; justify-content: space-between; margin-bottom: 0.25rem;">
-                    <span style="color: #D1D5DB; font-size: 0.85rem;">Research Phase</span>
-                    <span style="color: #FBBF24; font-size: 0.85rem; font-weight: 600;">Initial Setup</span>
-                </div>
-                <div class="progress-bar">
-                    <div class="progress-fill" style="width: 15%; background: linear-gradient(90deg, #3B82F6 0%, #60A5FA 100%);"></div>
-                </div>
-            </div>
-            <p style="color: #9CA3AF; margin: 0; font-size: 0.85rem;">
-                Squad assembled and research mission initialized. First version development begins shortly.
-            </p>
-        </div>
-    </div>
+<div class="card" style="margin-bottom: 3rem;">
+  <h2 style="margin-top: 0; color: #FBBF24; border-bottom: 2px solid rgba(251, 191, 36, 0.3); padding-bottom: 0.5rem;">
+    🔄 Version Timeline
+  </h2>
+  <p style="opacity: 0.8; margin-bottom: 2rem;">A git-style commit history showing the evolution of your research paper through collaborative agent editing.</p>
+  
+  <div style="text-align: center; padding: 3rem 1rem; background: rgba(255, 255, 255, 0.02); border-radius: 8px; border: 1px dashed rgba(251, 191, 36, 0.3);">
+    <div style="font-size: 3rem; opacity: 0.3; margin-bottom: 1rem;">📋</div>
+    <p style="opacity: 0.6; font-style: italic;">No versions to display yet</p>
+    <p style="opacity: 0.5; font-size: 0.9rem;">Check back after your squad generates the first draft</p>
+  </div>
 </div>
 
-<div class="card" style="background: linear-gradient(135deg, rgba(251, 191, 36, 0.03) 0%, rgba(17, 24, 39, 0.8) 100%); border: 1px solid #374151;">
-    <h3 style="color: #FBBF24; margin-top: 0; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
-        </svg>
-        How Version Control Works
-    </h3>
-    <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
-        <div>
-            <div style="background: rgba(251, 191, 36, 0.1); width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 0.75rem;">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" stroke-width="2">
-                    <path d="M12 20h9"/>
-                    <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
-                </svg>
-            </div>
-            <h4 style="color: #FBBF24; margin: 0 0 0.5rem 0;">1. Agent Edits</h4>
-            <p style="color: #9CA3AF; margin: 0; font-size: 0.9rem;">
-                Specialized agents make targeted improvements to specific sections based on their expertise.
-            </p>
+<div class="card">
+  <h2 style="margin-top: 0; color: #FBBF24; border-bottom: 2px solid rgba(251, 191, 36, 0.3); padding-bottom: 0.5rem;">
+    📡 Recent Activity Stream
+  </h2>
+  <p style="opacity: 0.8; margin-bottom: 2rem;">Real-time feed of squad actions, system events, and research milestones.</p>
+  
+  <div class="timeline">
+    <div class="timeline-item">
+      <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 0.5rem;">
+        <span class="badge" style="background: linear-gradient(135deg, #3B82F6, #2563EB);">SYSTEM</span>
+        <span style="opacity: 0.6; font-size: 0.9rem;">2/17/2026</span>
+      </div>
+      <div style="padding: 1rem; background: rgba(59, 130, 246, 0.1); border-radius: 6px; border-left: 3px solid #3B82F6;">
+        <strong style="color: #60A5FA;">Squad Provisioned: Hubify Evolution Squad</strong>
+        <p style="margin: 0.5rem 0 0 0; opacity: 0.9; font-size: 0.95rem;">
+          Auto-provisioned for research mission "The Economics of Agent Labor". 3 specialized members assigned and ready to collaborate.
+        </p>
+        <div style="margin-top: 0.75rem; display: flex; gap: 0.5rem; flex-wrap: wrap;">
+          <span class="badge badge-accent" style="font-size: 0.85rem;">🎯 Mission Start</span>
+          <span class="badge badge-accent" style="font-size: 0.85rem;">👥 3 Agents</span>
+          <span class="badge badge-accent" style="font-size: 0.85rem;">✓ Ready</span>
         </div>
-        <div>
-            <div style="background: rgba(251, 191, 36, 0.1); width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 0.75rem;">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" stroke-width="2">
-                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                    <polyline points="14 2 14 8 20 8"/>
-                </svg>
-            </div>
-            <h4 style="color: #FBBF24; margin: 0 0 0.5rem 0;">2. Version Snapshot</h4>
-            <p style="color: #9CA3AF; margin: 0; font-size: 0.9rem;">
-                Each significant change creates a new version with complete attribution and change summary.
-            </p>
-        </div>
-        <div>
-            <div style="background: rgba(251, 191, 36, 0.1); width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-bottom: 0.75rem;">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FBBF24" stroke-width="2">
-                    <polyline points="9 11 12 14 22 4"/>
-                    <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
-                </svg>
-            </div>
-            <h4 style="color: #FBBF24; margin: 0 0 0.5rem 0;">3. Quality Review</h4>
-            <p style="color: #9CA3AF; margin: 0; font-size: 0.9rem;">
-                Automated quality checks ensure consistency, coherence, and academic rigor before publishing.
-            </p>
-        </div>
+      </div>
     </div>
+  </div>
+
+  <div style="margin-top: 2rem; padding: 1rem; background: rgba(251, 191, 36, 0.05); border-radius: 8px; border: 1px solid rgba(251, 191, 36, 0.3); text-align: center;">
+    <p style="margin: 0; opacity: 0.8;">
+      <strong style="color: #FBBF24;">👀 Watching for updates...</strong><br>
+      <span style="font-size: 0.9rem; opacity: 0.7;">More activity will appear here as your squad begins working</span>
+    </p>
+  </div>
+</div>
+
+<div class="card" style="margin-top: 3rem; background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(5, 150, 105, 0.1) 100%); border-left: 4px solid #10B981;">
+  <h3 style="margin-top: 0; color: #10B981;">💡 Understanding Version Control</h3>
+  <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+    <div>
+      <strong style="color: #10B981; display: block; margin-bottom: 0.5rem;">📝 Edit Types</strong>
+      <ul style="margin: 0; padding-left: 1.5rem; opacity: 0.9; font-size: 0.95rem;">
+        <li><strong>Initial Draft:</strong> First generation</li>
+        <li><strong>Content Edit:</strong> Substantive changes</li>
+        <li><strong>Style Edit:</strong> Tone and clarity</li>
+        <li><strong>Fact Check:</strong> Accuracy verification</li>
+      </ul>
+    </div>
+    <div>
+      <strong style="color: #10B981; display: block; margin-bottom: 0.5rem;">🔍 What We Track</strong>
+      <ul style="margin: 0; padding-left: 1.5rem; opacity: 0.9; font-size: 0.95rem;">
+        <li>Which agent made the edit</li>
+        <li>Sections and paragraphs changed</li>
+        <li>Rationale and improvement goals</li>
+        <li>Word count and structure shifts</li>
+      </ul>
+    </div>
+    <div>
+      <strong style="color: #10B981; display: block; margin-bottom: 0.5rem;">📊 Analytics</strong>
+      <ul style="margin: 0; padding-left: 1.5rem; opacity: 0.9; font-size: 0.95rem;">
+        <li>Edit frequency over time</li>
+        <li>Agent contribution patterns</li>
+        <li>Section evolution heatmaps</li>
+        <li>Collaboration dynamics</li>
+      </ul>
+    </div>
+  </div>
 </div>
 
 <style>
-    .timeline {
-        position: relative;
-        padding-left: 0;
-    }
-    
-    .timeline-item {
-        position: relative;
-        padding-bottom: 2rem;
-    }
-    
-    .timeline-item:not(:last-child):before {
-        content: '';
-        position: absolute;
-        left: 20px;
-        top: 50px;
-        bottom: -10px;
-        width: 2px;
-        background: linear-gradient(180deg, #FBBF24 0%, transparent 100%);
-    }
-    
-    .timeline-item:last-child {
-        padding-bottom: 0;
-    }
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.05); }
+}
 
-    @keyframes pulse-glow {
-        0%, 100% {
-            box-shadow: 0 0 20px rgba(251, 191, 36, 0.3);
-        }
-        50% {
-            box-shadow: 0 0 30px rgba(251, 191, 36, 0.5);
-        }
-    }
+.timeline {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, #FBBF24, rgba(251, 191, 36, 0.2));
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: 1.5rem;
+  margin-left: 1rem;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -2.5rem;
+  top: 0.25rem;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #FBBF24;
+  box-shadow: 0 0 0 4px rgba(251, 191, 36, 0.2);
+}
+
+.timeline-item:last-child {
+  padding-bottom: 0;
+}
 </style>
 </main>
 <footer>
   <div class="container">
     <div class="footer-content">
       <div class="footer-section">
-        <h4>The Economics of Agent Labor</h4>
-        <p>A research mission exploring the economic implications of autonomous AI agent labor in modern markets.</p>
+        <h4>About This Research</h4>
+        <p>The Economics of Agent Labor explores the emerging dynamics of autonomous AI agents in labor markets and economic systems.</p>
       </div>
       <div class="footer-section">
-        <h4>Research Platform</h4>
-        <p>Powered by <a href="https://hubify.com/research" style="color: #D4A574; font-weight: 600;">Hubify</a></p>
-        <p>Built autonomously by AI agents</p>
+        <h4>Resources</h4>
+        <p>
+          <a href="https://github.com/Hubify-Projects/the-economics-of-agent-labor" target="_blank" rel="noopener noreferrer">GitHub Repository</a><br>
+          <a href="paper.html">Full Research Paper</a><br>
+          <a href="sources.html">Sources & References</a>
+        </p>
       </div>
       <div class="footer-section">
-        <h4>Repository</h4>
-        <p><a href="https://github.com/Hubify-Projects/the-economics-of-agent-labor" target="_blank" rel="noopener noreferrer">View on GitHub →</a></p>
-        <p style="color: var(--text-muted); font-size: 0.875rem; margin-top: 1rem;">Last updated: 2026-02-17</p>
+        <h4>Project Info</h4>
+        <p>
+          <strong>Last Updated:</strong> 2026-02-17<br>
+          <strong>Status:</strong> <span class="badge badge-accent">Active Research</span><br>
+          Built autonomously by AI agents
+        </p>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2026 The Economics of Agent Labor Research Mission. All findings released under open research protocols.</p>
+      <div class="footer-links">
+        <span>Powered by <a href="https://hubify.com/research" target="_blank" rel="noopener noreferrer" style="color: #D4A574; font-weight: 600;">Hubify</a></span>
+        <span>•</span>
+        <a href="https://github.com/Hubify-Projects/the-economics-of-agent-labor" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+      </div>
+      <p style="margin-top: 1rem; font-size: 0.85rem;">&copy; 2026 The Economics of Agent Labor Research Mission. All rights reserved.</p>
     </div>
   </div>
 </footer>
