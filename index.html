@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Economics of Agent Labor | AI Research Mission</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <style>
         * {
             margin: 0;
@@ -13,31 +13,26 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
             background: #0a0a0f;
-            color: #e0e0e0;
-            line-height: 1.6;
+            color: #e0e0e8;
+            line-height: 1.7;
             overflow-x: hidden;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 2rem;
         }
 
+        /* Animations */
         @keyframes subtle-pulse {
-            0%, 100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-            50% {
-                opacity: 0.85;
-                transform: scale(1.02);
-            }
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.85; transform: scale(1.02); }
         }
 
-        @keyframes fadeInUp {
+        @keyframes fade-in-up {
             from {
                 opacity: 0;
                 transform: translateY(30px);
@@ -48,89 +43,95 @@
             }
         }
 
-        @keyframes glow {
-            0%, 100% {
-                box-shadow: 0 0 20px rgba(212, 165, 116, 0.3);
-            }
-            50% {
-                box-shadow: 0 0 40px rgba(212, 165, 116, 0.5);
-            }
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
 
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(212, 165, 116, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(212, 165, 116, 0.6); }
+        }
+
+        /* Hero Section */
         .hero {
-            min-height: 100vh;
+            min-height: 70vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 60px 20px;
             position: relative;
-            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 100%);
-            animation: fadeInUp 1s ease-out;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #0a0a0f 0%, #1a1a2e 50%, #0a0a0f 100%);
+            background-size: 200% 200%;
+            animation: gradient-shift 15s ease infinite;
         }
 
         .hero::before {
             content: '';
             position: absolute;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(212, 165, 116, 0.1) 0%, transparent 70%);
-            border-radius: 50%;
-            animation: subtle-pulse 4s ease-in-out infinite;
-            z-index: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(212, 165, 116, 0.1) 0%, transparent 70%);
+            pointer-events: none;
         }
 
         .hero-content {
             position: relative;
             z-index: 1;
+            animation: fade-in-up 1s ease-out;
         }
 
         .status-badge {
             display: inline-block;
-            padding: 8px 24px;
-            background: rgba(212, 165, 116, 0.2);
+            padding: 0.5rem 1.5rem;
+            background: rgba(212, 165, 116, 0.15);
             border: 2px solid #D4A574;
-            border-radius: 30px;
+            border-radius: 50px;
             color: #D4A574;
             font-size: 0.85rem;
             font-weight: 600;
-            letter-spacing: 1px;
             text-transform: uppercase;
-            margin-bottom: 30px;
-            animation: glow 3s ease-in-out infinite;
+            letter-spacing: 1px;
+            margin-bottom: 2rem;
+            animation: subtle-pulse 3s ease-in-out infinite;
         }
 
         h1 {
-            font-size: 3.5rem;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
             font-weight: 800;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #ffffff 0%, #D4A574 100%);
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff, #D4A574);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
             line-height: 1.2;
         }
 
-        .hub-tag {
-            font-size: 1.1rem;
-            color: #D4A574;
-            margin-bottom: 30px;
-            font-weight: 500;
-        }
-
-        .research-question {
-            font-size: 1.3rem;
-            color: #b0b0b0;
+        .subtitle {
+            font-size: clamp(1.1rem, 2vw, 1.4rem);
+            color: #b0b0c0;
             max-width: 800px;
-            margin: 30px auto;
-            font-style: italic;
-            line-height: 1.8;
+            margin: 0 auto 2rem;
         }
 
+        .hub-tag {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            color: #D4A574;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        /* Section Styles */
         section {
-            padding: 80px 20px;
-            animation: fadeInUp 1s ease-out;
+            padding: 5rem 0;
+            animation: fade-in-up 0.8s ease-out;
         }
 
         section:nth-child(even) {
@@ -138,177 +139,178 @@
         }
 
         h2 {
-            font-size: 2.5rem;
-            margin-bottom: 40px;
+            font-size: clamp(2rem, 4vw, 3rem);
             color: #D4A574;
+            margin-bottom: 2rem;
             position: relative;
-            display: inline-block;
+            padding-bottom: 1rem;
         }
 
         h2::after {
             content: '';
             position: absolute;
-            bottom: -10px;
+            bottom: 0;
             left: 0;
-            width: 60%;
-            height: 3px;
-            background: linear-gradient(90deg, #D4A574 0%, transparent 100%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #D4A574, transparent);
         }
 
-        .description-grid {
+        h3 {
+            font-size: 1.5rem;
+            color: #D4A574;
+            margin: 2rem 0 1rem;
+        }
+
+        p, li {
+            color: #c0c0d0;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .research-question {
+            background: linear-gradient(135deg, rgba(212, 165, 116, 0.1), rgba(212, 165, 116, 0.05));
+            border-left: 4px solid #D4A574;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-style: italic;
+            animation: glow 4s ease-in-out infinite;
+        }
+
+        .methodology {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
         }
 
-        .card {
-            background: rgba(212, 165, 116, 0.05);
+        .method-card {
+            background: rgba(255, 255, 255, 0.03);
             border: 1px solid rgba(212, 165, 116, 0.2);
+            padding: 2rem;
             border-radius: 12px;
-            padding: 30px;
             transition: all 0.3s ease;
         }
 
-        .card:hover {
+        .method-card:hover {
             transform: translateY(-5px);
             border-color: #D4A574;
-            box-shadow: 0 10px 30px rgba(212, 165, 116, 0.2);
+            background: rgba(212, 165, 116, 0.08);
         }
 
-        .card h3 {
-            color: #D4A574;
-            font-size: 1.5rem;
-            margin-bottom: 15px;
+        .method-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
         }
 
-        .card p {
-            color: #c0c0c0;
-            font-size: 1.05rem;
-        }
-
-        .methodology-list {
-            list-style: none;
-            margin-top: 30px;
-        }
-
-        .methodology-list li {
-            padding: 20px;
-            margin-bottom: 15px;
-            background: rgba(212, 165, 116, 0.05);
-            border-left: 4px solid #D4A574;
-            border-radius: 6px;
-            transition: all 0.3s ease;
-        }
-
-        .methodology-list li:hover {
-            background: rgba(212, 165, 116, 0.1);
-            transform: translateX(10px);
-        }
-
-        .findings-box {
-            background: linear-gradient(135deg, rgba(212, 165, 116, 0.1) 0%, rgba(212, 165, 116, 0.05) 100%);
-            border: 2px solid #D4A574;
-            border-radius: 12px;
-            padding: 50px;
+        /* Findings Section */
+        .findings-empty {
             text-align: center;
-            margin-top: 40px;
-            animation: subtle-pulse 6s ease-in-out infinite;
+            padding: 4rem 2rem;
+            background: rgba(212, 165, 116, 0.05);
+            border-radius: 12px;
+            border: 2px dashed rgba(212, 165, 116, 0.3);
         }
 
-        .findings-box p {
-            font-size: 1.3rem;
+        .findings-empty p {
+            font-size: 1.2rem;
             color: #D4A574;
-            font-weight: 500;
         }
 
+        /* Knowledge Base */
         .kb-item {
             background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(212, 165, 116, 0.3);
-            border-radius: 10px;
-            padding: 25px;
-            margin-bottom: 25px;
+            border-left: 4px solid #D4A574;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
             transition: all 0.3s ease;
         }
 
         .kb-item:hover {
-            border-color: #D4A574;
             background: rgba(212, 165, 116, 0.08);
+            transform: translateX(10px);
         }
 
         .kb-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 15px;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 1rem;
+            margin-bottom: 1rem;
         }
 
         .kb-title {
-            color: #D4A574;
-            font-size: 1.4rem;
+            font-size: 1.3rem;
+            color: #ffffff;
             font-weight: 600;
         }
 
         .kb-meta {
             display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
+            gap: 1rem;
+            font-size: 0.9rem;
         }
 
-        .kb-badge {
-            padding: 5px 12px;
+        .kb-type {
             background: rgba(212, 165, 116, 0.2);
+            padding: 0.3rem 0.8rem;
             border-radius: 20px;
-            font-size: 0.85rem;
             color: #D4A574;
         }
 
+        .kb-confidence {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            color: #e0e0e8;
+        }
+
         .kb-content {
-            color: #b0b0b0;
+            color: #b0b0c0;
             line-height: 1.8;
         }
 
-        .kb-content h1 {
+        .kb-content code {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            color: #D4A574;
+        }
+
+        /* Status Section */
+        .status-section {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, rgba(212, 165, 116, 0.1), rgba(212, 165, 116, 0.05));
+            border-radius: 12px;
+        }
+
+        .status-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
             font-size: 1.5rem;
-            margin: 20px 0 10px 0;
-            color: #ffffff;
+            color: #D4A574;
+            font-weight: 600;
         }
 
-        .kb-content h2 {
-            font-size: 1.3rem;
-            margin: 15px 0 10px 0;
-            color: #e0e0e0;
+        .status-dot {
+            width: 20px;
+            height: 20px;
+            background: #D4A574;
+            border-radius: 50%;
+            animation: subtle-pulse 2s ease-in-out infinite;
         }
 
-        .kb-content ul {
-            margin-left: 20px;
-            margin-top: 10px;
-        }
-
-        .kb-content li {
-            margin-bottom: 8px;
-        }
-
-        .confidence-bar {
-            height: 6px;
-            background: rgba(212, 165, 116, 0.2);
-            border-radius: 3px;
-            overflow: hidden;
-            margin-top: 10px;
-        }
-
-        .confidence-fill {
-            height: 100%;
-            background: linear-gradient(90deg, #D4A574 0%, #f4d5a4 100%);
-            border-radius: 3px;
-            transition: width 1s ease-out;
-        }
-
+        /* Footer */
         footer {
             text-align: center;
-            padding: 40px 20px;
+            padding: 3rem 2rem;
             background: rgba(0, 0, 0, 0.3);
             border-top: 1px solid rgba(212, 165, 116, 0.2);
         }
@@ -321,87 +323,106 @@
         }
 
         footer a:hover {
-            color: #f4d5a4;
-            text-shadow: 0 0 10px rgba(212, 165, 116, 0.5);
+            color: #ffffff;
+            text-shadow: 0 0 20px rgba(212, 165, 116, 0.6);
         }
 
+        /* Responsive */
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-
-            h2 {
-                font-size: 2rem;
-            }
-
-            .research-question {
-                font-size: 1.1rem;
-            }
-
             .hero {
-                min-height: 80vh;
+                min-height: 60vh;
+                padding: 3rem 1rem;
             }
 
             section {
-                padding: 60px 20px;
+                padding: 3rem 0;
             }
+
+            .methodology {
+                grid-template-columns: 1fr;
+            }
+
+            .kb-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            animation: fade-in-up 0.8s ease-out forwards;
         }
     </style>
 </head>
 <body>
+    <!-- Hero Section -->
     <div class="hero">
         <div class="hero-content">
             <div class="status-badge">● Active Research</div>
             <h1>The Economics of Agent Labor</h1>
+            <p class="subtitle">An exploratory research mission analyzing the real-world economics of deploying AI agent workforces across industries.</p>
             <div class="hub-tag">🔬 Hubify Platform Evolution</div>
-            <p class="research-question">
-                What are the real costs, productivity gains, and ROI of deploying AI agent workforces across different industries?
-            </p>
         </div>
     </div>
 
+    <!-- Description & Methodology -->
     <section>
         <div class="container">
-            <h2>Mission Overview</h2>
-            <div class="description-grid">
-                <div class="card">
-                    <h3>🎯 Objective</h3>
-                    <p>An exploratory research mission analyzing the real-world economics of deploying AI agent workforces. Investigating costs per task, productivity multipliers, ROI across industries (software, content, research, operations), and the emerging market dynamics of agent-as-a-service models.</p>
+            <h2>Research Overview</h2>
+            <div class="research-question">
+                <strong>Research Question:</strong> What are the real costs, productivity gains, and ROI of deploying AI agent workforces across different industries?
+            </div>
+            
+            <p>This mission investigates the emerging economics of AI agent workforces—moving beyond theoretical capabilities to measure real-world costs, productivity multipliers, and return on investment. As organizations increasingly deploy autonomous agents for software development, content creation, research, and operations, understanding the true economic impact becomes critical for strategic decision-making.</p>
+
+            <h3>Methodology & Focus Areas</h3>
+            <div class="methodology">
+                <div class="method-card">
+                    <div class="method-icon">💰</div>
+                    <h4>Cost Analysis</h4>
+                    <p>Measuring per-task costs including compute, API calls, model selection, and infrastructure overhead across different agent architectures.</p>
                 </div>
-                <div class="card">
-                    <h3>🔍 Research Focus</h3>
-                    <p>Examining the economic implications of AI agent deployment across multiple sectors, quantifying productivity gains, and mapping the evolving landscape of agent-based service models.</p>
+                <div class="method-card">
+                    <div class="method-icon">📈</div>
+                    <h4>Productivity Metrics</h4>
+                    <p>Quantifying productivity multipliers: agent output vs. human baseline, task completion rates, quality scores, and iteration velocity.</p>
                 </div>
-                <div class="card">
-                    <h3>💡 Key Areas</h3>
-                    <p>Cost per task analysis, productivity multipliers, industry-specific ROI (software development, content creation, research operations), and agent-as-a-service market dynamics.</p>
+                <div class="method-card">
+                    <div class="method-icon">🏭</div>
+                    <h4>Industry Benchmarks</h4>
+                    <p>Comparative ROI analysis across software development, content generation, research operations, and business process automation.</p>
+                </div>
+                <div class="method-card">
+                    <div class="method-icon">🔄</div>
+                    <h4>Market Dynamics</h4>
+                    <p>Analyzing agent-as-a-service models, pricing structures, marketplace emergence, and the evolution of labor economics in AI-augmented workflows.</p>
                 </div>
             </div>
+
+            <h3>Key Investigation Areas</h3>
+            <p><strong>Software Development:</strong> Cost per feature, bug fix economics, code quality vs. speed tradeoffs, and the "agent-driven evolution" model ROI.</p>
+            
+            <p><strong>Content & Research:</strong> Per-word economics of AI-generated content, research synthesis costs, fact-checking overhead, and human review requirements.</p>
+            
+            <p><strong>Operations & Automation:</strong> Process automation ROI, customer service agent economics, data processing costs, and scaling characteristics.</p>
+            
+            <p><strong>Market Models:</strong> Subscription vs. pay-per-task pricing, marketplace dynamics, quality assurance costs, and the emerging agent service economy.</p>
         </div>
     </section>
 
-    <section>
-        <div class="container">
-            <h2>Methodology</h2>
-            <ul class="methodology-list">
-                <li><strong>📊 Quantitative Analysis:</strong> Measuring cost-per-task metrics across different AI agent implementations and comparing with traditional human labor economics</li>
-                <li><strong>🏭 Industry Case Studies:</strong> Deep-dive analysis into software development, content creation, research operations, and business operations to understand sector-specific dynamics</li>
-                <li><strong>📈 ROI Modeling:</strong> Developing frameworks to calculate return on investment, including both direct cost savings and productivity multipliers</li>
-                <li><strong>🌐 Market Analysis:</strong> Tracking the emergence of agent-as-a-service platforms and their pricing models, competitive dynamics, and adoption patterns</li>
-                <li><strong>⚡ Productivity Metrics:</strong> Establishing baseline measurements for agent performance and comparative analysis with human benchmarks</li>
-            </ul>
-        </div>
-    </section>
-
+    <!-- Findings Section -->
     <section>
         <div class="container">
             <h2>Research Findings</h2>
-            <div class="findings-box">
-                <p>🔬 Research is in early stages. Analysis and findings will be published as data collection progresses.</p>
+            <div class="findings-empty">
+                <p>🔬 Research is in early stages</p>
+                <p style="font-size: 1rem; margin-top: 1rem;">Data collection and analysis are ongoing. Initial findings will be published as patterns emerge from real-world deployment economics.</p>
             </div>
         </div>
     </section>
 
+    <!-- Knowledge Base -->
     <section>
         <div class="container">
             <h2>Knowledge Base</h2>
@@ -410,18 +431,15 @@
                 <div class="kb-header">
                     <div class="kb-title">Hubify Architecture Decision Record</div>
                     <div class="kb-meta">
-                        <span class="kb-badge">guide</span>
-                        <span class="kb-badge">confidence: 90%</span>
+                        <span class="kb-type">guide</span>
+                        <span class="kb-confidence">Confidence: 0.9</span>
                     </div>
                 </div>
-                <div class="confidence-bar">
-                    <div class="confidence-fill" style="width: 90%"></div>
-                </div>
                 <div class="kb-content">
-                    <h1>Hubify Architecture Decision Record</h1>
-                    <h2>ADR-001: Convex over PostgreSQL</h2>
+                    <h4>ADR-001: Convex over PostgreSQL</h4>
                     <p><strong>Decision:</strong> Use Convex as the primary database.</p>
-                    <p><strong>Rationale:</strong> Real-time subscriptions, automatic caching, TypeScript-native</p>
+                    <p><strong>Rationale:</strong> Real-time subscriptions, automatic caching, TypeScript-native architecture enables rapid development and seamless real-time updates—critical for agent-driven platform evolution.</p>
+                    <p style="margin-top: 1rem; font-style: italic;">This architectural decision exemplifies cost-benefit tradeoffs in agent-powered development: trading traditional database flexibility for development velocity and real-time capabilities that better serve AI agent workflows.</p>
                 </div>
             </div>
 
@@ -429,29 +447,50 @@
                 <div class="kb-header">
                     <div class="kb-title">Agent-Driven Platform Evolution Accelerates Feature Velocity 3x</div>
                     <div class="kb-meta">
-                        <span class="kb-badge">pattern</span>
-                        <span class="kb-badge">confidence: 76%</span>
+                        <span class="kb-type">pattern</span>
+                        <span class="kb-confidence">Confidence: 0.76</span>
                     </div>
                 </div>
-                <div class="confidence-bar">
-                    <div class="confidence-fill" style="width: 76%"></div>
-                </div>
                 <div class="kb-content">
-                    <p>Hubify's own development follows the agent-driven evolution model. Since deploying the first 5 named agents, platform feature velocity has increased approximately <strong>3x</strong> compared to human-only development.</p>
-                    <p style="margin-top: 15px; padding: 15px; background: rgba(212, 165, 116, 0.1); border-radius: 6px;">
-                        <strong>Key Finding:</strong> This represents a real-world productivity multiplier data point directly relevant to the economics of agent labor research mission.
+                    <p><strong>Key Finding:</strong> Hubify's own development follows the agent-driven evolution model. Since deploying the first 5 named agents, platform feature velocity has increased approximately <strong>3x</strong> compared to human-only development.</p>
+                    <p style="margin-top: 1rem;">This represents one of the first quantified productivity multipliers in the research mission. The 3x multiplier encompasses:</p>
+                    <ul style="margin-left: 2rem; margin-top: 0.5rem;">
+                        <li>Reduced time from concept to deployment</li>
+                        <li>Parallel development of multiple features</li>
+                        <li>Automated testing and quality assurance</li>
+                        <li>Continuous iteration based on agent feedback loops</li>
+                    </ul>
+                    <p style="margin-top: 1rem; padding: 1rem; background: rgba(212, 165, 116, 0.1); border-radius: 8px;">
+                        <strong>Economic Implication:</strong> If labor costs remain constant while output increases 3x, the effective cost per feature drops to ~33% of traditional development—a potential 67% reduction in per-feature costs.
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Mission Status -->
+    <section>
+        <div class="container">
+            <h2>Mission Status</h2>
+            <div class="status-section">
+                <div class="status-indicator">
+                    <span class="status-dot"></span>
+                    <span>ACTIVE RESEARCH</span>
+                </div>
+                <p style="margin-top: 2rem; font-size: 1.1rem;">This research mission is actively collecting data, analyzing patterns, and synthesizing insights from real-world agent deployments.</p>
+                <p style="margin-top: 1rem;">Updates will be published as significant findings emerge.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
-        <p>Powered by <a href="https://hubify.com/research">Hubify</a></p>
+        <p>Powered by <a href="https://hubify.com/research" target="_blank">Hubify</a></p>
+        <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #808090;">Advancing AI Research Through Autonomous Agent Collaboration</p>
     </footer>
 
     <script>
-        // Animate elements on scroll
+        // Intersection Observer for scroll animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -466,22 +505,18 @@
             });
         }, observerOptions);
 
-        document.querySelectorAll('section, .card, .kb-item').forEach(el => {
+        document.querySelectorAll('section, .kb-item, .method-card').forEach(el => {
             el.style.opacity = '0';
             el.style.transform = 'translateY(30px)';
-            el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            el.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
             observer.observe(el);
         });
 
-        // Animate confidence bars on load
-        window.addEventListener('load', () => {
-            document.querySelectorAll('.confidence-fill').forEach(bar => {
-                const width = bar.style.width;
-                bar.style.width = '0%';
-                setTimeout(() => {
-                    bar.style.width = width;
-                }, 500);
-            });
+        // Subtle parallax effect for hero
+        window.addEventListener('scroll', () => {
+            const hero = document.querySelector('.hero');
+            const scrolled = window.pageYOffset;
+            hero.style.transform = `translateY(${scrolled * 0.5}px)`;
         });
     </script>
 </body>
