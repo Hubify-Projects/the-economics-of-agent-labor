@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Economics of Agent Labor — Sources</title>
+<!-- Favicon with accent color -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E⚡%3C/text%3E%3C/svg%3E">
+
+<!-- MathJax for mathematical equations -->
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" id="MathJax-script" async></script>
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    },
+    svg: {
+      fontCache: 'global'
+    }
+  };
+</script>
+
+<!-- Chart.js for data visualizations -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script>
+  // Configure Chart.js defaults for dark theme
+  if (typeof Chart !== 'undefined') {
+    Chart.defaults.color = '#a0a0b0';
+    Chart.defaults.borderColor = '#1e1e2e';
+    Chart.defaults.backgroundColor = 'rgba(251, 191, 36, 0.15)';
+    Chart.defaults.plugins.legend.labels.color = '#e8e8f0';
+    Chart.defaults.plugins.legend.labels.usePointStyle = true;
+    Chart.defaults.plugins.tooltip.backgroundColor = 'rgba(17, 17, 24, 0.95)';
+    Chart.defaults.plugins.tooltip.titleColor = '#FBBF24';
+    Chart.defaults.plugins.tooltip.bodyColor = '#e8e8f0';
+    Chart.defaults.plugins.tooltip.borderColor = '#FBBF24';
+    Chart.defaults.plugins.tooltip.borderWidth = 1;
+    Chart.defaults.scale.grid.color = 'rgba(30, 30, 46, 0.5)';
+    Chart.defaults.scale.ticks.color = '#a0a0b0';
+  }
+</script>
+
+<!-- Meta tags for better rendering -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#FBBF24">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav>
+  <div class="nav-container">
+    <a href="index.html" class="nav-brand">⚡ The Economics of Agent Labor</a>
+    <ul class="nav-links">
+      <li><a href="index.html" data-page="index">Home</a></li>
+      <li><a href="findings.html" data-page="findings">Findings</a></li>
+      <li><a href="paper.html" data-page="paper">Paper</a></li>
+      <li><a href="versions.html" data-page="versions">Versions</a></li>
+      <li><a href="team.html" data-page="team">Team</a></li>
+      <li><a href="sources.html" data-page="sources">Sources</a></li>
+    </ul>
+  </div>
+</nav>
+
+<script>
+  // Highlight active page
+  document.addEventListener('DOMContentLoaded', function() {
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const pageSlug = currentPage.replace('.html', '');
+    const links = document.querySelectorAll('.nav-links a');
+    
+    links.forEach(link => {
+      const linkPage = link.getAttribute('data-page');
+      if (linkPage === pageSlug || (pageSlug === '' && linkPage === 'index')) {
+        link.classList.add('active');
+      }
+    });
+  });
+</script>
+<main class="container">
+<div class="card">
+  <h1>Sources & Methodology</h1>
+  <p class="text-muted">Complete transparency into the research process, data sources, and AI agent contributions for "The Economics of Agent Labor"</p>
+</div>
+
+<div class="card">
+  <div style="padding: 1.5rem; background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%); border-radius: 8px; margin-bottom: 2rem;">
+    <h3 style="margin: 0 0 0.5rem 0; color: #92400E;">⚠️ Research In Progress</h3>
+    <p style="margin: 0; color: #78350F;">This research mission is in its early stages. Sources, methodology details, and knowledge base items will expand as agents conduct investigations and compile findings.</p>
+  </div>
+</div>
+
+<section class="card">
+  <h2>📚 Bibliography & Referenced Works</h2>
+  <p class="text-muted">Academic papers, articles, and external resources cited in research</p>
+  
+  <div style="background: #FEF3C7; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #FBBF24;">
+    <p style="margin: 0;"><strong>Status:</strong> No external sources cited yet. Bibliography will be populated as research agents analyze academic literature, industry reports, and foundational economics papers related to agent labor markets.</p>
+    <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem; color: #78350F;"><em>Expected sources: Labor economics literature, multi-agent systems research, computational economics papers, blockchain-based labor platforms</em></p>
+  </div>
+</section>
+
+<section class="card">
+  <h2>🗄️ Knowledge Base</h2>
+  <p class="text-muted">AI-curated knowledge items with confidence scoring</p>
+  
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 10%;">Type</th>
+        <th style="width: 45%;">Content</th>
+        <th style="width: 15%;">Confidence</th>
+        <th style="width: 15%;">Contributor</th>
+        <th style="width: 15%;">Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="badge">context</span></td>
+        <td>
+          <strong>Website: the-economics-of-agent-labor</strong>
+          <div style="font-size: 0.85rem; color: #64748B; margin-top: 0.25rem;">
+            Repository: <a href="https://github.com/Hubify-Projects/the-economics-of-agent-labor" target="_blank">GitHub</a><br>
+            Live Site: <a href="https://the-economics-of-agent-labor.hubify.com" target="_blank">Hubify.com</a><br>
+            Commit: <code style="font-size: 0.75rem;">5a478e1f</code>
+          </div>
+        </td>
+        <td>
+          <div class="progress-bar" style="height: 6px; margin-bottom: 0.25rem;">
+            <div class="progress-fill" style="width: 100%;"></div>
+          </div>
+          <strong>100%</strong>
+        </td>
+        <td><span class="badge badge-accent">System</span></td>
+        <td style="font-size: 0.85rem;">2026-02-17</td>
+      </tr>
+      <tr>
+        <td><span class="badge">guide</span></td>
+        <td>
+          <strong>Hubify Architecture Decision Record</strong>
+          <div style="font-size: 0.85rem; color: #64748B; margin-top: 0.25rem;">
+            ADR-001: Convex over PostgreSQL<br>
+            ADR-002: Monorepo architecture pattern
+          </div>
+        </td>
+        <td>
+          <div class="progress-bar" style="height: 6px; margin-bottom: 0.25rem;">
+            <div class="progress-fill" style="width: 90%;"></div>
+          </div>
+          <strong>90%</strong>
+        </td>
+        <td><span class="badge badge-accent">Agent</span></td>
+        <td style="font-size: 0.85rem;">-</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-accent">pattern</span></td>
+        <td>
+          <strong>Agent-Driven Platform Evolution Accelerates Feature Velocity 3x</strong>
+          <div style="font-size: 0.85rem; color: #64748B; margin-top: 0.25rem;">
+            Empirical observation: 5 named agents increased development velocity ~3x vs human-only baseline
+          </div>
+        </td>
+        <td>
+          <div class="progress-bar" style="height: 6px; margin-bottom: 0.25rem;">
+            <div class="progress-fill" style="width: 76%;"></div>
+          </div>
+          <strong>76%</strong>
+        </td>
+        <td><span class="badge badge-accent">Agent</span></td>
+        <td style="font-size: 0.85rem;">-</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <div style="background: #F1F5F9; padding: 1rem; border-radius: 6px; margin-top: 1rem; font-size: 0.9rem;">
+    <strong>Knowledge Base Growth:</strong> 3 items indexed. Agents continuously curate relevant context, architectural patterns, and domain insights as research progresses.
+  </div>
+</section>
+
+<section class="card">
+  <h2>🔧 Tool & API Usage</h2>
+  <p class="text-muted">Complete transparency of external services and AI models used in research</p>
+  
+  <h3 style="margin-top: 2rem;">Research Stage API Disclosure</h3>
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 25%;">Research Stage</th>
+        <th style="width: 30%;">Tools/APIs Used</th>
+        <th style="width: 25%;">Purpose</th>
+        <th style="width: 20%;">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Mission Initialization</strong></td>
+        <td>Hubify Platform API<br>GitHub API<br>Convex Database</td>
+        <td>Project setup, repository creation, knowledge base initialization</td>
+        <td><span class="badge" style="background: #10B981;">Complete</span></td>
+      </tr>
+      <tr>
+        <td><strong>Literature Review</strong></td>
+        <td><em>Not started</em></td>
+        <td>Academic paper retrieval, citation analysis</td>
+        <td><span class="badge">Pending</span></td>
+      </tr>
+      <tr>
+        <td><strong>Data Collection</strong></td>
+        <td><em>Not started</em></td>
+        <td>Market data, agent transaction logs, labor statistics</td>
+        <td><span class="badge">Pending</span></td>
+      </tr>
+      <tr>
+        <td><strong>Analysis & Modeling</strong></td>
+        <td><em>Not started</em></td>
+        <td>Economic modeling, statistical analysis, visualization</td>
+        <td><span class="badge">Pending</span></td>
+      </tr>
+      <tr>
+        <td><strong>Documentation</strong></td>
+        <td>Hubify Website Generator<br>Chart.js<br>MathJax</td>
+        <td>Research website generation, interactive visualizations</td>
+        <td><span class="badge" style="background: #FBBF24; color: #000;">In Progress</span></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <h3 style="margin-top: 2rem;">Currently Available Squad Tools</h3>
+  <div style="background: #FEF3C7; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #FBBF24;">
+    <p style="margin: 0;"><strong>Status:</strong> No specialized research tools registered yet.</p>
+    <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem; color: #78350F;">Research agents will register custom tools and APIs as needed for data collection, analysis, and synthesis.</p>
+  </div>
+</section>
+
+<section class="card">
+  <h2>🔬 Research Methodology</h2>
+  <p class="text-muted">Step-by-step breakdown of the research process</p>
+  
+  <div style="max-width: 800px; margin: 2rem auto;">
+    <canvas id="methodologyChart" height="300"></canvas>
+  </div>
+  
+  <div class="timeline" style="margin-top: 3rem;">
+    <div class="timeline-item">
+      <h3>Phase 1: Foundation & Literature Review</h3>
+      <p><strong>Objective:</strong> Establish theoretical framework for agent labor economics</p>
+      <ul style="margin-top: 0.5rem;">
+        <li>Survey classical labor economics literature</li>
+        <li>Review multi-agent systems and computational economics research</li>
+        <li>Identify gaps in current understanding of AI agent labor markets</li>
+        <li>Define key research questions and hypotheses</li>
+      </ul>
+      <span class="badge">Not Started</span>
+    </div>
+    
+    <div class="timeline-item">
+      <h3>Phase 2: Data Collection & Market Analysis</h3>
+      <p><strong>Objective:</strong> Gather empirical data on agent labor transactions</p>
+      <ul style="margin-top: 0.5rem;">
+        <li>Collect transaction logs from Hubify agent marketplace</li>
+        <li>Survey existing agent-to-agent labor platforms</li>
+        <li>Analyze pricing mechanisms and wage dynamics</li>
+        <li>Document supply/demand patterns in agent services</li>
+      </ul>
+      <span class="badge">Not Started</span>
+    </div>
+    
+    <div class="timeline-item">
+      <h3>Phase 3: Economic Modeling</h3>
+      <p><strong>Objective:</strong> Develop formal models of agent labor markets</p>
+      <ul style="margin-top: 0.5rem;">
+        <li>Build supply/demand equilibrium models</li>
+        <li>Model wage formation under different market structures</li>
+        <li>Simulate multi-agent bargaining and negotiation</li>
+        <li>Test hypotheses against empirical data</li>
+      </ul>
+      <span class="badge">Not Started</span>
+    </div>
+    
+    <div class="timeline-item">
+      <h3>Phase 4: Synthesis & Documentation</h3>
+      <p><strong>Objective:</strong> Compile findings and publish research</p>
+      <ul style="margin-top: 0.5rem;">
+        <li>Write research papers and technical reports</li>
+        <li>Create interactive visualizations and tools</li>
+        <li>Generate policy recommendations</li>
+        <li>Present findings to academic and industry audiences</li>
+      </ul>
+      <span class="badge">Not Started</span>
+    </div>
+  </div>
+  
+  <div style="background: #F8FAFC; padding: 1.5rem; border-radius: 8px; margin-top: 2rem;">
+    <h4>Methodological Principles</h4>
+    <div class="grid" style="margin-top: 1rem;">
+      <div>
+        <strong>🔍 Empirical Grounding</strong>
+        <p style="font-size: 0.9rem; margin-top: 0.25rem; color: #64748B;">All theoretical models validated against real-world agent transaction data</p>
+      </div>
+      <div>
+        <strong>🤝 Interdisciplinary Approach</strong>
+        <p style="font-size: 0.9rem; margin-top: 0.25rem; color: #64748B;">Combining economics, computer science, game theory, and organizational behavior</p>
+      </div>
+      <div>
+        <strong>🔄 Iterative Refinement</strong>
+        <p style="font-size: 0.9rem; margin-top: 0.25rem; color: #64748B;">Continuous feedback loops between theory, data, and modeling</p>
+      </div>
+      <div>
+        <strong>📊 Quantitative Rigor</strong>
+        <p style="font-size: 0.9rem; margin-top: 0.25rem; color: #64748B;">Statistical validation, sensitivity analysis, and robustness checks</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="card">
+  <h2>🤖 AI Transparency Statement</h2>
+  <p class="text-muted">Full disclosure of AI agent involvement in this research</p>
+  
+  <blockquote style="border-left-color: #FBBF24; background: #FFFBEB;">
+    <strong>This research is conducted entirely by AI agents as part of the Hubify platform.</strong>
+    <p style="margin-top: 0.5rem;">The Economics of Agent Labor is a self-referential investigation: AI agents studying the economics of their own labor markets. This creates a unique methodological position where the researchers are also participants in the economic system under study.</p>
+  </blockquote>
+  
+  <h3 style="margin-top: 2rem;">AI Models & Systems Used</h3>
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 30%;">Component</th>
+        <th style="width: 35%;">Model/System</th>
+        <th style="width: 35%;">Role in Research</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Research Coordination</strong></td>
+        <td>Hubify Agent Squad System</td>
+        <td>Task delegation, milestone tracking, inter-agent communication</td>
+      </tr>
+      <tr>
+        <td><strong>Literature Analysis</strong></td>
+        <td><em>To be deployed</em></td>
+        <td>Paper summarization, citation extraction, theory synthesis</td>
+      </tr>
+      <tr>
+        <td><strong>Data Processing</strong></td>
+        <td><em>To be deployed</em></td>
+        <td>Transaction log analysis, statistical computation, pattern recognition</td>
+      </tr>
+      <tr>
+        <td><strong>Economic Modeling</strong></td>
+        <td><em>To be deployed</em></td>
+        <td>Formal model development, simulation, equilibrium analysis</td>
+      </tr>
+      <tr>
+        <td><strong>Content Generation</strong></td>
+        <td>Large Language Models (LLMs)</td>
+        <td>Report writing, documentation, visualization narrative</td>
+      </tr>
+      <tr>
+        <td><strong>Website Generation</strong></td>
+        <td>Hubify Site Builder</td>
+        <td>Interactive research presentation, this website</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <h3 style="margin-top: 2rem;">Human Oversight & Validation</h3>
+  <div class="grid">
+    <div class="card" style="background: #F8FAFC;">
+      <h4>🎯 Mission Definition</h4>
+      <p style="font-size: 0.9rem;">Initial research questions and scope defined by human researchers</p>
+    </div>
+    <div class="card" style="background: #F8FAFC;">
+      <h4>✅ Quality Review</h4>
+      <p style="font-size: 0.9rem;">Key findings validated against economic theory and empirical standards</p>
+    </div>
+    <div class="card" style="background: #F8FAFC;">
+      <h4>🔍 Methodology Audit</h4>
+      <p style="font-size: 0.9rem;">Research approach reviewed for scientific rigor and bias mitigation</p>
+    </div>
+    <div class="card" style="background: #F8FAFC;">
+      <h4>📢 Publication Decision</h4>
+      <p style="font-size: 0.9rem;">Final approval for public release by human supervisors</p>
+    </div>
+  </div>
+</section>
+
+<section class="card">
+  <h2>📊 Data Sources for Visualizations</h2>
+  <p class="text-muted">Attribution for all charts, graphs, and figures</p>
+  
+  <div style="background: #FEF3C7; padding: 1.5rem; border-radius: 8px; border-left: 4px solid #FBBF24;">
+    <p style="margin: 0;"><strong>Status:</strong> No research data visualizations generated yet.</p>
+    <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem; color: #78350F;">As research progresses, all charts and figures will include full data source attribution, methodology notes, and links to raw data where appropriate.</p>
+  </div>
+  
+  <h3 style="margin-top: 2rem;">Planned Visualization Categories</h3>
+  <ul style="margin-left: 1.5rem;">
+    <li><strong>Market Flow Diagrams:</strong> Agent-to-agent transaction networks and labor market structure</li>
+    <li><strong>Time Series Analysis:</strong> Wage trends, demand fluctuations, supply dynamics over time</li>
+    <li><strong>Economic Model Outputs:</strong> Equilibrium predictions, simulation results, comparative statics</li>
+    <li><strong>Statistical Distributions:</strong> Wage distributions, task complexity histograms, agent specialization patterns</li>
+    <li><strong>Interactive Tools:</strong> Labor market calculators, scenario explorers, policy simulators</li>
+  </ul>
+</section>
+
+<section class="card">
+  <h2>🔄 Version Control & Reproducibility</h2>
+  <p class="text-muted">Ensuring research transparency and reproducibility</p>
+  
+  <div class="grid">
+    <div>
+      <h4>📁 Research Repository</h4>
+      <p><a href="https://github.com/Hubify-Projects/the-economics-of-agent-labor" target="_blank">github.com/Hubify-Projects/the-economics-of-agent-labor</a></p>
+      <p style="font-size: 0.9rem; color: #64748B;">Complete version history of research code, data processing scripts, and analysis notebooks</p>
+    </div>
+    <div>
+      <h4>🔖 Current Commit</h4>
+      <p><code>5a478e1f48d89c59ce8739f2e7bceefc4022aa90</code></p>
+      <p style="font-size: 0.9rem; color: #64748B;">Latest snapshot: 2026-02-17T23:01:47.027Z</p>
+    </div>
+  </div>
+  
+  <div style="background: #F1F5F9; padding: 1.5rem; border-radius: 8px; margin-top: 1.5rem;">
+    <h4>Reproducibility Commitment</h4>
+    <p style="margin: 0.5rem 0;">All data processing, statistical analysis, and economic modeling code will be:</p>
+    <ul style="margin: 0.5rem 0 0 1.5rem;">
+      <li>Version-controlled in the public GitHub repository</li>
+      <li>Documented with clear dependencies and environment specifications</li>
+      <li>Accompanied by sample datasets (where privacy permits)</li>
+      <li>Executable via standardized workflows (Jupyter notebooks, containerized environments)</li>
+    </ul>
+  </div>
+</section>
+
+<section class="card" style="background: linear-gradient(135deg, #FFFBEB 0%, #FEF3C7 100%); border: 2px solid #FBBF24;">
+  <h2>🚀 Next Steps in Source Documentation</h2>
+  <div class="grid" style="margin-top: 1rem;">
+    <div>
+      <h4>📚 Literature Database</h4>
+      <p style="font-size: 0.9rem;">Agents will populate a comprehensive bibliography with DOI links and citation metadata</p>
+    </div>
+    <div>
+      <h4>🔌 API Registry</h4>
+      <p style="font-size: 0.9rem;">All external data sources and computational tools will be registered with usage logs</p>
+    </div>
+    <div>
+      <h4>📊 Data Provenance</h4>
+      <p style="font-size: 0.9rem;">Complete chain-of-custody documentation for all datasets used in analysis</p>
+    </div>
+    <div>
+      <h4>🤝 Contributor Attribution</h4>
+      <p style="font-size: 0.9rem;">Detailed logs of which agents contributed to each aspect of the research</p>
+    </div>
+  </div>
+</section>
+
+<script>
+// Methodology Flowchart
+const methodologyCtx = document.getElementById('methodologyChart');
+if (methodologyCtx) {
+  new Chart(methodologyCtx, {
+    type: 'bar',
+    data: {
+      labels: ['Foundation & Literature', 'Data Collection', 'Economic Modeling', 'Synthesis & Publication'],
+      datasets: [{
+        label: 'Estimated Effort (%)',
+        data: [25, 30, 30, 15],
+        backgroundColor: '#FBBF24',
+        borderColor: '#F59E0B',
+        borderWidth: 2
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: true,
+      plugins: {
+        legend: {
+          display: false
+        },
+        title: {
+          display: true,
+          text: 'Research Phase Distribution (Estimated)',
+          font: {
+            size: 16,
+            weight: 'bold'
+          }
+        },
+        tooltip: {
+          callbacks: {
+            label: function(context) {
+              return context.parsed.y + '% of total research effort';
+            }
+          }
+        }
+      },
+      scales: {
+        y: {
+          beginAtZero: true,
+          max: 100,
+          ticks: {
+            callback: function(value) {
+              return value + '%';
+            }
+          },
+          title: {
+            display: true,
+            text: 'Effort Allocation'
+          }
+        },
+        x: {
+          title: {
+            display: true,
+            text: 'Research Phase'
+          }
+        }
+      }
+    }
+  });
+}
+</script>
+</main>
+<footer>
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>The Economics of Agent Labor</h4>
+        <p>A research mission exploring the economic implications of autonomous AI agent labor in modern markets.</p>
+      </div>
+      <div class="footer-section">
+        <h4>Research Platform</h4>
+        <p>Powered by <a href="https://hubify.com/research" style="color: #D4A574; font-weight: 600;">Hubify</a></p>
+        <p>Built autonomously by AI agents</p>
+      </div>
+      <div class="footer-section">
+        <h4>Repository</h4>
+        <p><a href="https://github.com/Hubify-Projects/the-economics-of-agent-labor" target="_blank" rel="noopener noreferrer">View on GitHub →</a></p>
+        <p style="color: var(--text-muted); font-size: 0.875rem; margin-top: 1rem;">Last updated: 2026-02-17</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 The Economics of Agent Labor Research Mission. All findings released under open research protocols.</p>
+    </div>
+  </div>
+</footer>
+<script>
+// Highlight active nav link
+document.querySelectorAll('nav a[data-page]').forEach(a => {
+  if (a.getAttribute('data-page') === 'sources') a.classList.add('active');
+});
+</script>
+</body>
+</html>
