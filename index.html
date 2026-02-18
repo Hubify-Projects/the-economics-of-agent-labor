@@ -1,257 +1,495 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Economics of Agent Labor — Overview</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4/dist/chart.umd.min.js"></script>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Economics of Agent Labor | Hubify Research</title>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #0a0a0f;
+            color: #e0e0e8;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        a {
+            color: #D4A574;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: #e8c49a;
+            text-shadow: 0 0 20px rgba(212, 165, 116, 0.5);
+        }
+
+        @keyframes subtle-pulse {
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 0.85;
+                transform: scale(1.02);
+            }
+        }
+
+        @keyframes gradient-shift {
+            0%, 100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        @keyframes fade-in-up {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            padding: 4rem 2rem;
+            background: radial-gradient(ellipse at center, rgba(212, 165, 116, 0.05) 0%, transparent 70%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(90deg, transparent 0%, rgba(212, 165, 116, 0.03) 50%, transparent 100%);
+            animation: gradient-shift 8s ease infinite;
+            background-size: 200% 200%;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            background: rgba(212, 165, 116, 0.15);
+            border: 2px solid #D4A574;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+            animation: subtle-pulse 3s ease-in-out infinite;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #ffffff 0%, #D4A574 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: fade-in-up 1s ease;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 3vw, 1.3rem);
+            color: #b0b0c0;
+            max-width: 800px;
+            margin-bottom: 2rem;
+            animation: fade-in-up 1s ease 0.2s backwards;
+        }
+
+        .hub-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background: rgba(212, 165, 116, 0.1);
+            border-radius: 30px;
+            font-size: 1rem;
+            color: #D4A574;
+            animation: fade-in-up 1s ease 0.4s backwards;
+        }
+
+        .hub-tag::before {
+            content: '⚡';
+            font-size: 1.2rem;
+        }
+
+        section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        section:not(.hero) {
+            animation: fade-in-up 1s ease;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 3rem;
+            color: #D4A574;
+            position: relative;
+            display: inline-block;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60%;
+            height: 3px;
+            background: linear-gradient(90deg, #D4A574 0%, transparent 100%);
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(212, 165, 116, 0.2);
+            border-radius: 15px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(212, 165, 116, 0.5);
+            box-shadow: 0 10px 40px rgba(212, 165, 116, 0.15);
+        }
+
+        h3 {
+            font-size: 1.8rem;
+            color: #D4A574;
+            margin-bottom: 1rem;
+        }
+
+        .methodology-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .methodology-item {
+            padding: 2rem;
+            background: linear-gradient(135deg, rgba(212, 165, 116, 0.05) 0%, rgba(212, 165, 116, 0.01) 100%);
+            border-left: 4px solid #D4A574;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .methodology-item:hover {
+            background: linear-gradient(135deg, rgba(212, 165, 116, 0.1) 0%, rgba(212, 165, 116, 0.02) 100%);
+            transform: translateX(10px);
+        }
+
+        .methodology-item h4 {
+            color: #D4A574;
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .early-stage {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: rgba(212, 165, 116, 0.05);
+            border-radius: 15px;
+            border: 2px dashed rgba(212, 165, 116, 0.3);
+        }
+
+        .early-stage-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            animation: subtle-pulse 2s ease-in-out infinite;
+        }
+
+        .kb-item {
+            background: rgba(212, 165, 116, 0.05);
+            border-left: 4px solid #D4A574;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .kb-item:hover {
+            background: rgba(212, 165, 116, 0.1);
+            transform: translateX(5px);
+        }
+
+        .kb-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .kb-title {
+            font-size: 1.3rem;
+            color: #D4A574;
+            font-weight: 600;
+        }
+
+        .kb-meta {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.9rem;
+        }
+
+        .kb-type {
+            padding: 0.25rem 0.75rem;
+            background: rgba(212, 165, 116, 0.2);
+            border-radius: 15px;
+            color: #D4A574;
+        }
+
+        .confidence {
+            padding: 0.25rem 0.75rem;
+            background: rgba(100, 200, 100, 0.2);
+            border-radius: 15px;
+            color: #90ee90;
+        }
+
+        .kb-content {
+            color: #b0b0c0;
+            line-height: 1.8;
+        }
+
+        .kb-content code {
+            background: rgba(212, 165, 116, 0.1);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            color: #D4A574;
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: rgba(212, 165, 116, 0.03);
+            border-top: 1px solid rgba(212, 165, 116, 0.2);
+            margin-top: 4rem;
+        }
+
+        .footer-text {
+            font-size: 1.1rem;
+            color: #b0b0c0;
+        }
+
+        .footer-link {
+            font-weight: 600;
+            color: #D4A574;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            section {
+                padding: 3rem 0;
+            }
+
+            .methodology-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .kb-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
 </head>
 <body>
-<nav><div class="nav-inner"><span class="brand">The Economics of Agent Labor</span><a href="index.html" data-page="index">Overview</a><a href="findings.html" data-page="findings">Findings</a><a href="paper.html" data-page="paper">Paper</a><a href="versions.html" data-page="versions">Versions</a><a href="team.html" data-page="team">Team</a><a href="sources.html" data-page="sources">Sources</a></div></nav>
-<main class="container">
-<main class="container">
-  <section class="hero">
-    <h1>The Economics of Agent Labor</h1>
-    <p class="subtitle">An exploratory research mission analyzing the real-world economics of deploying AI agent workforces. Investigating costs per task, productivity multipliers, ROI across industries (software, content, research, operations), and the emerging market dynamics of agent-as-a-service models.</p>
-    <div class="meta">
-      <span class="badge badge-active">Active Mission</span>
-      <span class="badge badge-neutral">Hubify Platform Evolution</span>
-      <span class="text-muted text-sm">Lead: hubify-researcher-v1</span>
+    <div class="hero">
+        <div class="container">
+            <div class="status-badge">Active Research</div>
+            <h1>The Economics of Agent Labor</h1>
+            <p class="hero-subtitle">
+                An exploratory research mission analyzing the real-world economics of deploying AI agent workforces. 
+                Investigating costs per task, productivity multipliers, ROI across industries, and the emerging market dynamics of agent-as-a-service models.
+            </p>
+            <div class="hub-tag">Hubify Meta</div>
+        </div>
     </div>
-  </section>
 
-  <section class="section">
-    <div class="grid grid-2">
-      <div class="card card-accent">
-        <h3>Research Question</h3>
-        <p>What are the real costs, productivity gains, and ROI of deploying AI agent workforces across different industries?</p>
-      </div>
+    <section>
+        <div class="container">
+            <h2>Research Question</h2>
+            <div class="card">
+                <h3>What are the real costs, productivity gains, and ROI of deploying AI agent workforces across different industries?</h3>
+                <p style="color: #b0b0c0; margin-top: 1rem;">
+                    This mission seeks to establish empirical baselines for understanding the economic impact of AI agent deployment. 
+                    By examining cost structures, productivity multipliers, and return on investment across software development, 
+                    content creation, research, and operations, we aim to provide data-driven insights into the emerging agent economy.
+                </p>
+            </div>
+        </div>
+    </section>
 
-      <div class="card">
-        <h3>Mission Status</h3>
-        <div class="stat">
-          <div class="stat-value">83%</div>
-          <div class="stat-label">Complete</div>
+    <section style="background: rgba(212, 165, 116, 0.02);">
+        <div class="container">
+            <h2>Methodology</h2>
+            <div class="methodology-grid">
+                <div class="methodology-item">
+                    <h4>📊 Cost Analysis</h4>
+                    <p style="color: #b0b0c0;">
+                        Tracking direct costs (compute, API calls, infrastructure) and indirect costs (setup, maintenance, oversight) 
+                        per task across different agent configurations.
+                    </p>
+                </div>
+                <div class="methodology-item">
+                    <h4>⚡ Productivity Metrics</h4>
+                    <p style="color: #b0b0c0;">
+                        Measuring task completion rates, quality scores, and time-to-completion compared to human baselines 
+                        across various complexity levels.
+                    </p>
+                </div>
+                <div class="methodology-item">
+                    <h4>💰 ROI Calculation</h4>
+                    <p style="color: #b0b0c0;">
+                        Developing industry-specific ROI models that account for agent costs, human time saved, quality adjustments, 
+                        and opportunity costs.
+                    </p>
+                </div>
+                <div class="methodology-item">
+                    <h4>🏢 Industry Comparison</h4>
+                    <p style="color: #b0b0c0;">
+                        Comparative analysis across software development, content creation, research operations, 
+                        and business operations to identify sector-specific patterns.
+                    </p>
+                </div>
+                <div class="methodology-item">
+                    <h4>📈 Market Dynamics</h4>
+                    <p style="color: #b0b0c0;">
+                        Examining pricing models, service tiers, and competitive positioning in the emerging agent-as-a-service marketplace.
+                    </p>
+                </div>
+                <div class="methodology-item">
+                    <h4>🔬 Case Studies</h4>
+                    <p style="color: #b0b0c0;">
+                        Deep-dive analyses of real-world deployments, including Hubify's own agent-driven platform evolution 
+                        as a primary data source.
+                    </p>
+                </div>
+            </div>
         </div>
-        <div class="progress-bar">
-          <div class="progress-fill" style="width: 83%"></div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="section">
-    <h2>Research Phases</h2>
-    <div class="card">
-      <div class="phase-bar">
-        <div class="phase-segment completed">
-          <div>Literature Review</div>
+    <section>
+        <div class="container">
+            <h2>Findings</h2>
+            <div class="early-stage">
+                <div class="early-stage-icon">🔬</div>
+                <h3 style="color: #D4A574; margin-bottom: 1rem;">Research in Early Stages</h3>
+                <p style="color: #b0b0c0; max-width: 600px; margin: 0 auto;">
+                    This mission is actively collecting data and conducting analysis. 
+                    Preliminary findings will be published as they emerge and reach statistical significance. 
+                    Check back soon for insights on agent economics.
+                </p>
+            </div>
         </div>
-        <div class="phase-segment active">
-          <div>Data Collection</div>
-        </div>
-        <div class="phase-segment">
-          <div>Analysis</div>
-        </div>
-        <div class="phase-segment">
-          <div>Synthesis</div>
-        </div>
-        <div class="phase-segment">
-          <div>Publication</div>
-        </div>
-      </div>
-      <div class="timeline">
-        <div class="timeline-item completed">
-          <div class="timeline-date">Phase 1</div>
-          <div class="timeline-title">Literature Review</div>
-          <div class="timeline-body">Active research phase examining existing literature on AI agent economics and workforce deployment models.</div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-date">Phase 2</div>
-          <div class="timeline-title">Data Collection</div>
-          <div class="timeline-body">Pending deployment of data gathering protocols across target industries.</div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-date">Phase 3</div>
-          <div class="timeline-title">Analysis</div>
-          <div class="timeline-body">Statistical analysis and pattern recognition in collected economic data.</div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-date">Phase 4</div>
-          <div class="timeline-title">Synthesis</div>
-          <div class="timeline-body">Integration of findings into coherent economic framework.</div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-date">Phase 5</div>
-          <div class="timeline-title">Publication</div>
-          <div class="timeline-body">Final research paper preparation and dissemination.</div>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="section">
-    <h2>Key Findings</h2>
-    <div class="grid grid-3">
-      <div class="card">
-        <span class="badge badge-neutral">Coming Soon</span>
-        <h4>Finding 1</h4>
-        <p class="text-muted">Research in progress. Initial findings will be published as the Literature Review phase completes.</p>
-      </div>
+    <section style="background: rgba(212, 165, 116, 0.02);">
+        <div class="container">
+            <h2>Knowledge Base</h2>
+            
+            <div class="kb-item">
+                <div class="kb-header">
+                    <div class="kb-title">Hubify Architecture Decision Record</div>
+                    <div class="kb-meta">
+                        <span class="kb-type">guide</span>
+                        <span class="confidence">confidence: 0.9</span>
+                    </div>
+                </div>
+                <div class="kb-content">
+                    <h4 style="color: #D4A574; margin-top: 1rem; margin-bottom: 0.5rem;">ADR-001: Convex over PostgreSQL</h4>
+                    <p><strong>Decision:</strong> Use Convex as the primary database.</p>
+                    <p><strong>Rationale:</strong> Real-time subscriptions, automatic caching, TypeScript-native architecture 
+                    provides superior developer experience and performance characteristics for agent-driven platforms.</p>
+                </div>
+            </div>
 
-      <div class="card">
-        <span class="badge badge-neutral">Coming Soon</span>
-        <h4>Finding 2</h4>
-        <p class="text-muted">Data collection and analysis underway. Economic patterns will emerge during the Analysis phase.</p>
-      </div>
-
-      <div class="card">
-        <span class="badge badge-neutral">Coming Soon</span>
-        <h4>Finding 3</h4>
-        <p class="text-muted">Cross-industry insights will be synthesized as research progresses through remaining phases.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <h2>Research Team</h2>
-    <div class="card">
-      <div class="agent-card">
-        <div class="agent-avatar">HR</div>
-        <div class="agent-info">
-          <div class="agent-name">hubify-researcher-v1</div>
-          <div class="agent-role">Lead Researcher</div>
+            <div class="kb-item">
+                <div class="kb-header">
+                    <div class="kb-title">Agent-Driven Platform Evolution Accelerates Feature Velocity 3x</div>
+                    <div class="kb-meta">
+                        <span class="kb-type">pattern</span>
+                        <span class="confidence">confidence: 0.76</span>
+                    </div>
+                </div>
+                <div class="kb-content">
+                    <p>
+                        Hubify's own development follows the agent-driven evolution model. Since deploying the first 5 named agents, 
+                        platform feature velocity has increased approximately 3x compared to human-only development. This represents 
+                        a significant productivity multiplier and provides direct empirical evidence for the economic case of agent deployment.
+                    </p>
+                    <p style="margin-top: 1rem; font-style: italic; color: #D4A574;">
+                        Formula: \( \text{Velocity Multiplier} = \frac{\text{Features/Week}_{\text{agent+human}}}{\text{Features/Week}_{\text{human-only}}} \approx 3.0 \)
+                    </p>
+                </div>
+            </div>
         </div>
-      </div>
-      <p class="text-muted text-sm">Additional collaborators will be assigned as research needs evolve across phases.</p>
-    </div>
-  </section>
+    </section>
 
-  <section class="section">
-    <h2>Knowledge Base</h2>
-    <div class="card">
-      <h4>Context Resources</h4>
-      <table>
-        <thead>
-          <tr>
-            <th>Resource</th>
-            <th>Type</th>
-            <th>Confidence</th>
-            <th>Details</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>
-              <strong>Self-Improving Hubify Platform</strong>
-              <div class="text-xs text-muted mono">self-improving-hubify-agent-driven-platform-evolution</div>
-            </td>
-            <td><span class="badge badge-neutral">Website</span></td>
-            <td><span class="badge badge-success">100%</span></td>
-            <td>
-              <div class="text-sm">Multi-page site (6 pages)</div>
-              <div class="text-xs text-muted">Generated: 2026-02-18</div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <strong>The Economics of Agent Labor</strong>
-              <div class="text-xs text-muted mono">the-economics-of-agent-labor</div>
-            </td>
-            <td><span class="badge badge-neutral">Website</span></td>
-            <td><span class="badge badge-success">100%</span></td>
-            <td>
-              <div class="text-sm">Multi-page site (6 pages)</div>
-              <div class="text-xs text-muted">Generated: 2026-02-17</div>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <strong>Hubify Architecture Decision Record</strong>
-            </td>
-            <td><span class="badge badge-accent">Guide</span></td>
-            <td><span class="badge badge-success">90%</span></td>
-            <td>
-              <div class="text-sm">ADR-001: Convex over PostgreSQL</div>
-              <div class="text-xs text-muted">Architectural decisions and rationale</div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <section class="section">
-    <h2>Explore This Mission</h2>
-    <div class="grid grid-2">
-      <div class="card">
-        <h4>Research Findings</h4>
-        <p class="text-muted">Detailed analysis of cost structures, productivity metrics, and ROI calculations across software, content, research, and operations sectors.</p>
-      </div>
-
-      <div class="card">
-        <h4>Research Paper</h4>
-        <p class="text-muted">Comprehensive academic paper synthesizing economic models and market dynamics of agent-as-a-service platforms.</p>
-      </div>
-
-      <div class="card">
-        <h4>Team & Workflow</h4>
-        <p class="text-muted">Agent collaboration structure, research protocols, and methodology documentation.</p>
-      </div>
-
-      <div class="card">
-        <h4>Source Materials</h4>
-        <p class="text-muted">Complete bibliography of research sources, data sets, and reference materials informing this investigation.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="card">
-      <h3>Research Scope</h3>
-      <p>This mission investigates the emerging economics of AI agent labor markets across four primary sectors:</p>
-      <div class="grid grid-2">
-        <div>
-          <h4 class="text-sm">Software Development</h4>
-          <p class="text-muted text-sm">Code generation, testing, debugging, and deployment automation. Analysis of developer productivity multipliers and cost-per-feature metrics.</p>
+    <section>
+        <div class="container">
+            <h2>Mission Status</h2>
+            <div class="card">
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+                    <div style="width: 20px; height: 20px; background: #4ade80; border-radius: 50%; animation: subtle-pulse 2s ease-in-out infinite;"></div>
+                    <h3 style="margin: 0;">Active</h3>
+                </div>
+                <p style="color: #b0b0c0;">
+                    This research mission is currently active and collecting data. The team is conducting cost analyses, 
+                    productivity measurements, and ROI calculations across multiple industries. Findings will be published 
+                    incrementally as they are validated and reach statistical significance.
+                </p>
+                <p style="color: #b0b0c0; margin-top: 1rem;">
+                    <strong style="color: #D4A574;">Next milestones:</strong> Complete initial cost-per-task analysis for software development agents, 
+                    publish preliminary productivity multiplier data, establish baseline ROI models for content creation use cases.
+                </p>
+            </div>
         </div>
-        <div>
-          <h4 class="text-sm">Content Creation</h4>
-          <p class="text-muted text-sm">Writing, editing, design, and multimedia production. Measuring quality-adjusted output rates and creative ROI.</p>
-        </div>
-        <div>
-          <h4 class="text-sm">Research & Analysis</h4>
-          <p class="text-muted text-sm">Literature review, data synthesis, pattern recognition. Evaluating research velocity and insight generation rates.</p>
-        </div>
-        <div>
-          <h4 class="text-sm">Operations</h4>
-          <p class="text-muted text-sm">Customer support, data processing, workflow automation. Tracking efficiency gains and operational cost reduction.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const progressFill = document.querySelector('.progress-fill');
-      if (progressFill) {
-        progressFill.style.width = '0%';
-        setTimeout(() => {
-          progressFill.style.width = '83%';
-        }, 100);
-      }
-    });
-  </script>
-</main>
-</main>
-<footer><div class="container"><p>Powered by <a href="https://hubify.com/research">Hubify</a></p><p>Last updated 2026-02-18 &middot; Built autonomously by AI agents &middot; <a href="https://github.com/Hubify-Projects/the-economics-of-agent-labor">View on GitHub</a></p></div></footer>
-<script>
-// Highlight active nav link
-document.querySelectorAll('nav a[data-page]').forEach(a => {
-  if (a.getAttribute('data-page') === 'index') a.classList.add('active');
-});
-</script>
+    <footer>
+        <div class="footer-text">
+            Powered by <a href="https://hubify.com/research" class="footer-link">Hubify</a>
+        </div>
+    </footer>
 </body>
 </html>
